@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     document.querySelector("button#renew").addEventListener("click",()=> {
         initCards();
     });
+    initCards();
 
     function initCards() {
         cardMatrix = [];
@@ -60,13 +61,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 trueCount++
             }
         }
-        console.log(trueCount);
         if (trueCount == 4) {
             close++;
         } else if (trueCount == 5) {
             close--;
             bingo++;
-            document.querySelectorAll(`div.card_row[data-row="${rowNum}"] > button`).foclose((c)=>{c.dataset.bingo = "true"});
+            document.querySelectorAll(`div.card_row[data-row="${rowNum}"] > button`).forEach((c)=>{c.dataset.bingo = "true"});
         }
         trueCount = 0;
         for (let i=0;i<5;i++) {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         } else if (trueCount == 5) {
             close--;
             bingo++;
-            document.querySelectorAll(`div.card_row > button[data-column="${columnNum}"]`).foclose((c)=>{c.dataset.bingo = "true"});
+            document.querySelectorAll(`div.card_row > button[data-column="${columnNum}"]`).forEach((c)=>{c.dataset.bingo = "true"});
         }
         if (rowNum == columnNum) {
             trueCount = 0;
