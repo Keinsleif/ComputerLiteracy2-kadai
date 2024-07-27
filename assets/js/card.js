@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=> {
     const bingoStatusNum = document.querySelector("span#bingo_num");
-    const reachStatusNum = document.querySelector("span#reach_num");
+    const closeStatusNum = document.querySelector("span#close_num");
     let cardMatrix = [];
     let cardStatus = initCardsStatus();
     const cardContainer = document.querySelector("#cards");
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 card.dataset.bingo="false";
                 card.disabled = false;
                 bingoStatusNum.innerText="0";
-                reachStatusNum.innerText="0";
+                closeStatusNum.innerText="0";
             }
         }
     }
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         e.target.disabled = true;
         e.target.removeEventListener("click",onCardClicked);
         cardStatus[rowNum][columnNum] = true;
-        let bingo = parseInt(bingoStatusNum.innerText), reach = parseInt(reachStatusNum.innerText);
+        let bingo = parseInt(bingoStatusNum.innerText), close = parseInt(closeStatusNum.innerText);
         let trueCount = 0;
         for (let i=0;i<5;i++) {
             if (cardStatus[rowNum][i]) {
@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
         }
         console.log(trueCount);
         if (trueCount == 4) {
-            reach++;
+            close++;
         } else if (trueCount == 5) {
-            reach--;
+            close--;
             bingo++;
-            document.querySelectorAll(`div.card_row[data-row="${rowNum}"] > button`).forEach((c)=>{c.dataset.bingo = "true"});
+            document.querySelectorAll(`div.card_row[data-row="${rowNum}"] > button`).foclose((c)=>{c.dataset.bingo = "true"});
         }
         trueCount = 0;
         for (let i=0;i<5;i++) {
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
             }
         }
         if (trueCount == 4) {
-            reach++;
+            close++;
         } else if (trueCount == 5) {
-            reach--;
+            close--;
             bingo++;
-            document.querySelectorAll(`div.card_row > button[data-column="${columnNum}"]`).forEach((c)=>{c.dataset.bingo = "true"});
+            document.querySelectorAll(`div.card_row > button[data-column="${columnNum}"]`).foclose((c)=>{c.dataset.bingo = "true"});
         }
         if (rowNum == columnNum) {
             trueCount = 0;
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 }
             }
             if (trueCount == 4) {
-                reach++;
+                close++;
             } else if (trueCount == 5) {
-                reach--;
+                close--;
                 bingo++;
                 for (let i=0;i<5;i++) {
                     document.querySelector(`div.card_row[data-row="${i}"] > button[data-column="${i}"]`).dataset.bingo = "true";
@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 }
             }
             if (trueCount == 4) {
-                reach++;
+                close++;
             } else if (trueCount == 5) {
-                reach--;
+                close--;
                 bingo++;
                 for (let i=0;i<5;i++) {
                     document.querySelector(`div.card_row[data-row="${i}"] > button[data-column="${4-i}"]`).dataset.bingo = "true";
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             }
         }
         bingoStatusNum.innerText = bingo.toString();
-        reachStatusNum.innerText = reach.toString();
+        closeStatusNum.innerText = close.toString();
     }
 });
 

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             numberHistory.prepend(element);
             if (numberList.length == 75) {
                 button.dataset.func = "reset";
-                button.innerHTML = "抽選をリセットする"
+                button.innerHTML = "Reset the Picks"
             }
         } else if (button.dataset.func == "reset") {
             numberList.splice(0)
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 numberHistory.removeChild( numberHistory.firstChild );
             }
             button.dataset.func = "pick";
-            button.innerHTML = "番号を抽選する"
+            button.innerHTML = "Pick a Number"
     }
     });
 });
