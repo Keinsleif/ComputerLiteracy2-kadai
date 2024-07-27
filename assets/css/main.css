@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main div#picked_number {
+    text-align: center;
+    font-size: 72pt;
+    margin: 20px 0;
+}
+
+main button#pick_number {
+    height: 10%;
+    margin: 1% 0;
+    font-size: 150%;
+}
+
+main div#number_history {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main div#number_history div {
+    border-color: black;
+    border-radius: 1px;
+    margin: 1px;
+    border-style: solid;
+    aspect-ratio: 3/2;
+    width: 8%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+main div#number_history div span {
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+}
+
+main div#controls {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 50px;
+    margin-top: 2% ;
+}
+
+main div#controls button {
+    flex-grow: 1;
+    font-size: 1.5em;
+}
+
+main div#cards {
+    margin: 5%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main div#cards div.card_row {
+    height: calc(100% / 6);
+    flex-grow: 1;
+    display: flex;
+}
+
+main div#cards div.card_row button {
+    width: 20%;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+nav {
+    display: flex;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+nav a {
+    border-color: black;
+    border-right: 1px solid black;
+    text-decoration: none;
+    padding: 4px 16px;
+    transition-duration: 0.5s;
+    color: black;
+}
+
+nav a:visited {
+    color: black;
+}
+
+nav a:link {
+    color: black;
+}
+
+nav a:hover {
+    transition-duration: 0.5s;
+    background-color: rgba(0, 156, 209, 0.4);
+}
