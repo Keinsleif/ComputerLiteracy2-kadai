@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ビンゴ抽選機</title>
+        <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+        <script defer type="text/javascript" src="./assets/js/card.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html">ホーム</a>
+                <a href="picker.html">抽選機</a>
+                <a href="card.html">カード</a>
+            </nav>
+        </header>
+        <main>
+            <div id="controls">
+                <button id="renew">Renew</button>
+            </div>
+            <div id="status"><span>ビンゴ: <span id="bingo_num">0</span></span><span>リーチ: <span id="reach_num">0</span></span></div>
+            <div id="cards">
+                <div id="card_header" class="card_row">
+                    <button>B</button>
+                    <button>I</button>
+                    <button>N</button>
+                    <button>G</button>
+                    <button>O</button>
+                </div>
+                <div class="card_row" data-row="0">
+                    <button data-column="0" data-bingo="false"></button>
+                    <button data-column="1" data-bingo="false"></button>
+                    <button data-column="2" data-bingo="false"></button>
+                    <button data-column="3" data-bingo="false"></button>
+                    <button data-column="4" data-bingo="false"></button>
+                </div>
+                <div class="card_row" data-row="1">
+                    <button data-column="0" data-bingo="false"></button>
+                    <button data-column="1" data-bingo="false"></button>
+                    <button data-column="2" data-bingo="false"></button>
+                    <button data-column="3" data-bingo="false"></button>
+                    <button data-column="4" data-bingo="false"></button>
+                </div>
+                <div class="card_row" data-row="2">
+                    <button data-column="0" data-bingo="false"></button>
+                    <button data-column="1" data-bingo="false"></button>
+                    <button data-column="2" disabled>FREE</button>
+                    <button data-column="3" data-bingo="false"></button>
+                    <button data-column="4" data-bingo="false"></button>
+                </div>
+                <div class="card_row" data-row="3">
+                    <button data-column="0" data-bingo="false"></button>
+                    <button data-column="1" data-bingo="false"></button>
+                    <button data-column="2" data-bingo="false"></button>
+                    <button data-column="3" data-bingo="false"></button>
+                    <button data-column="4" data-bingo="false"></button>
+                </div>
+                <div class="card_row" data-row="4">
+                    <button data-column="0" data-bingo="false"></button>
+                    <button data-column="1" data-bingo="false"></button>
+                    <button data-column="2" data-bingo="false"></button>
+                    <button data-column="3" data-bingo="false"></button>
+                    <button data-column="4" data-bingo="false"></button>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
