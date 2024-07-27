@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener('DOMContentLoaded', () => {
     const numberList = [];
     const numberHistory = document.querySelector("#number_history");
 
-    document.querySelector("#pick_number").addEventListener("click", (e)=>{
+    document.querySelector("#pick_number").addEventListener("click", (e) => {
         const button = e.target;
         if (button.dataset.func == "pick") {
             let pickedNumber;
@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
             }
         } else if (button.dataset.func == "reset") {
             numberList.splice(0)
-            while( numberHistory.firstChild ){
-                numberHistory.removeChild( numberHistory.firstChild );
+            while (numberHistory.firstChild) {
+                numberHistory.removeChild(numberHistory.firstChild);
             }
             button.dataset.func = "pick";
             button.innerHTML = "Pick a Number"
-    }
+        }
     });
 });

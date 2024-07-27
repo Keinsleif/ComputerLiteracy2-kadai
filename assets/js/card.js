@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener('DOMContentLoaded', () => {
     const bingoStatusNum = document.querySelector("span#bingo_num");
     const closeStatusNum = document.querySelector("span#close_num");
     let cardMatrix = [];
     let cardStatus = initCardsStatus();
     const cardContainer = document.querySelector("#cards");
-    document.querySelector("button#renew").addEventListener("click",()=> {
+    document.querySelector("button#renew").addEventListener("click", () => {
         initCards();
     });
     initCards();
@@ -13,16 +13,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
         cardMatrix = [];
         cardStatus = initCardsStatus();
         const appearedNumbers = [];
-        for (let i=0; i< 5; i++) {
+        for (let i = 0; i < 5; i++) {
             let cardRow = []
-            for (let j=0; j<5; j++) {
-                if (i==2 && j==2) {
+            for (let j = 0; j < 5; j++) {
+                if (i == 2 && j == 2) {
                     cardRow.push(0)
                     continue;
                 }
                 let genNum;
                 do {
-                    genNum = Math.floor(Math.random() * 15) + 1 + (j*15);
+                    genNum = Math.floor(Math.random() * 15) + 1 + (j * 15);
                 } while (appearedNumbers.includes(genNum));
                 cardRow.push(genNum)
                 appearedNumbers.push(genNum)
@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 }
                 card.addEventListener("click", onCardClicked);
                 card.innerHTML = cardMatrix[parseInt(row.dataset.row)][parseInt(card.dataset.column)].toString();
-                card.dataset.bingo="false";
+                card.dataset.bingo = "false";
                 card.disabled = false;
-                bingoStatusNum.innerText="0";
-                closeStatusNum.innerText="0";
+                bingoStatusNum.innerText = "0";
+                closeStatusNum.innerText = "0";
             }
         }
     }
@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const rowNum = parseInt(e.target.parentNode.dataset.row);
         const columnNum = parseInt(e.target.dataset.column);
         e.target.disabled = true;
-        e.target.removeEventListener("click",onCardClicked);
+        e.target.removeEventListener("click", onCardClicked);
         cardStatus[rowNum][columnNum] = true;
         let bingo = parseInt(bingoStatusNum.innerText), close = parseInt(closeStatusNum.innerText);
         let trueCount = 0;
-        for (let i=0;i<5;i++) {
+        for (let i = 0; i < 5; i++) {
             if (cardStatus[rowNum][i]) {
                 trueCount++
             }
@@ -66,10 +66,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
         } else if (trueCount == 5) {
             close--;
             bingo++;
-            document.querySelectorAll(`div.card_row[data-row="${rowNum}"] > button`).forEach((c)=>{c.dataset.bingo = "true"});
+            document.querySelectorAll(`div.card_row[data-row="${rowNum}"] > button`).forEach((c) => { c.dataset.bingo = "true" });
         }
         trueCount = 0;
-        for (let i=0;i<5;i++) {
+        for (let i = 0; i < 5; i++) {
             if (cardStatus[i][columnNum]) {
                 trueCount++
             }
@@ -79,11 +79,11 @@ document.addEventListener('DOMContentLoaded', ()=> {
         } else if (trueCount == 5) {
             close--;
             bingo++;
-            document.querySelectorAll(`div.card_row > button[data-column="${columnNum}"]`).forEach((c)=>{c.dataset.bingo = "true"});
+            document.querySelectorAll(`div.card_row > button[data-column="${columnNum}"]`).forEach((c) => { c.dataset.bingo = "true" });
         }
         if (rowNum == columnNum) {
             trueCount = 0;
-            for (let i=0;i<5;i++) {
+            for (let i = 0; i < 5; i++) {
                 if (cardStatus[i][i]) {
                     trueCount++
                 }
@@ -93,14 +93,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
             } else if (trueCount == 5) {
                 close--;
                 bingo++;
-                for (let i=0;i<5;i++) {
+                for (let i = 0; i < 5; i++) {
                     document.querySelector(`div.card_row[data-row="${i}"] > button[data-column="${i}"]`).dataset.bingo = "true";
                 }
             }
         } else if (rowNum + columnNum == 4) {
             trueCount = 0;
-            for (let i=0;i<5;i++) {
-                if (cardStatus[i][4-i]) {
+            for (let i = 0; i < 5; i++) {
+                if (cardStatus[i][4 - i]) {
                     trueCount++
                 }
             }
@@ -109,8 +109,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
             } else if (trueCount == 5) {
                 close--;
                 bingo++;
-                for (let i=0;i<5;i++) {
-                    document.querySelector(`div.card_row[data-row="${i}"] > button[data-column="${4-i}"]`).dataset.bingo = "true";
+                for (let i = 0; i < 5; i++) {
+                    document.querySelector(`div.card_row[data-row="${i}"] > button[data-column="${4 - i}"]`).dataset.bingo = "true";
                 }
             }
         }
@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 });
 
 function initCardsStatus() {
-    return [...Array(5)].map((_, i)=> [...Array(5)].map((_, j)=>{
-        if (i==2 && j==2) {
+    return [...Array(5)].map((_, i) => [...Array(5)].map((_, j) => {
+        if (i == 2 && j == 2) {
             return true;
         }
         return false;
