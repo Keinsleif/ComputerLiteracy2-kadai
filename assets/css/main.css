@@ -116,6 +116,7 @@ main div#cards div.card_row button[data-bingo="true"] {
 main img#bingo_icon {
     object-fit: contain;
     height: 280px;
+    margin: auto;
 }
 
 main div#title {
