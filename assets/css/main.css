@@ -113,6 +113,23 @@ main div#cards div.card_row button[data-bingo="true"] {
     background-color: rgb(255, 219, 154);
 }
 
+main img#bingo_icon {
+    object-fit: contain;
+    height: 280px;
+}
+
+main div#title {
+    text-align: center;
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+main div#description {
+    flex-grow: 1;
+    padding: 0 15%;
+    font-size: 16pt;
+}
+
 nav {
     display: flex;
     border-top: 1px solid;
